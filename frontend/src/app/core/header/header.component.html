@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border border-primary rounded">
+  <a class="navbar-brand" href="#"><img class="logo" src="assets/images/smartTraceLogo.png">Smart Trace</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Find a trace
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dependencies</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          Server
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">docker</a>
+          <a class="dropdown-item" href="#">prs</a>
+          <a class="dropdown-item" href="#">int</a>
+          <a class="dropdown-item" href="#">deva</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">prod</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link righ" href="#collapseExample" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <span appOcticon="clock" width="12"></span> Last {{ timeItem.description }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<app-time-picker></app-time-picker>
+<app-search-field></app-search-field>

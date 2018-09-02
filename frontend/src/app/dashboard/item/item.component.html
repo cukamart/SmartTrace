@@ -1,0 +1,29 @@
+<a style="cursor: pointer"
+   class="list-group-item list-group-item-action flex-column align-items-start"
+   (click)="showDetails(traceGroup.correlationId)">
+  <li style="border: none" class="list-group-item">
+    <span class="badge badge-primary">{{ traceGroup.totalDuration }} ms {{ traceGroup.span }} spans</span>
+    <span class="badge badge-white"> id: {{ traceGroup.correlationId }}</span>
+  </li>
+  <li style="border: none" class="list-group-item">
+    <span>
+      <mark>
+        <b>{{ traceGroup.uri }}</b>
+      </mark>
+    </span>
+    <span class="badge badge-secondary float-md-right">{{ traceGroup.startDate | date: 'dd-MMM-yy h:mm:ss a'}}</span>
+  </li>
+</a>
+
+<app-dependency-graph [idx]=idx
+                      [jsonTrace]=jsonTrace></app-dependency-graph>
+
+<div id="cy" class='row justify-content-center cytograph mt-2' *ngIf="graphData">
+  <ngx-cytoscape [elements]="graphData" [style]="style"></ngx-cytoscape>
+</div>
+
+<div class='row justify-content-center'>
+  <div class='col-10'>
+    <span *ngIf="!last"><hr></span>
+  </div>
+</div>

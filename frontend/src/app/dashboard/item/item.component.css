@@ -1,0 +1,25 @@
+li {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+hr {
+  border:none;
+  border-top:1px dotted #007BFF;
+  color:#fff;
+  background-color:#fff;
+  height:1px;
+}
+
+ngx-cytoscape {
+  height: 50vh;
+  float: left;
+  position: relative;
+  border: solid #21c0c0;
+  width: 50em;
+}
+
+/* #cy {
+  width: 40em;
+  height: 40em;
+} */

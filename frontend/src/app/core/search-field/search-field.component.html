@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit(filledForm)" #filledForm="ngForm"> <!-- #vytvori premennu a ulozi do nej ngForm co je angulari formular-->
+  <div class="form-group input-group mt-2">
+    <input
+    type="text"
+    class="form-control"
+    id="uri"
+    name="uri"
+    placeholder="Search traces"
+    ngModel
+    required
+    #inputValue="ngModel">
+    <button class="btn btn-primary ml-1" type="submit" [disabled]="filledForm.invalid">Search <span class="ml-1" appOcticon="search" color="white" width="14"></span></button>
+  </div>
+  <span class="help-lock" *ngIf="inputValue.invalid && inputValue.touched">Please enter a valid service name!</span>
+</form>

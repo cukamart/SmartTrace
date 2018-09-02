@@ -1,0 +1,43 @@
+<div class="collapse" id="collapseExample">
+  <div class="container-fluid">
+    <div class="row border border-dark justify-content-md-center mt-1">
+      <div class="col-md-2">
+
+        <!-- TIME BUTTONS -->
+        <ul class="list-group">
+          <li class="list-group-item border-0">
+            <h4>Time Range</h4>
+          </li>
+          <li class="list-group-item border-0">
+            <button type="button"
+                    [ngClass]="{active: timeButton === TimeButton.Quick}"
+                    (click)="onTimeButtonClick(TimeButton.Quick)"
+                    class="btn btn-outline-primary mt-4 btn-block">Quick</button>
+          </li>
+          <li class="list-group-item border-0">
+            <button type="button"
+                    [ngClass]="{active: timeButton === TimeButton.Absolute}"
+                    (click)="onTimeButtonClick(TimeButton.Absolute)"
+                    class="btn btn-outline-primary mt-4 btn-block">Absolute</button>
+          </li>
+        </ul>
+      </div>
+
+
+      <!-- TIME ITEMS-->
+      <div *ngIf="timeButton === TimeButton.Quick" class="offset-md-2 col-md-8">
+        <ul class="list-group mt-4 ml-5">
+          <app-time-item *ngFor="let timeItem of timeItemList1" [timeItem]="timeItem"></app-time-item>
+        </ul>
+        <ul class="list-group mt-4 ml-5">
+          <app-time-item *ngFor="let timeItem of timeItemList2" [timeItem]="timeItem"></app-time-item>
+        </ul>
+      </div>
+
+      <div *ngIf="timeButton === TimeButton.Absolute" class="offset-md-2 col-md-8">
+        todo calendars.... + button na zaciatok trace
+      </div>
+
+    </div>
+  </div>
+</div>

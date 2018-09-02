@@ -1,0 +1,43 @@
+<div *ngIf="traceGroups === undefined && !error" class="offset-md-4 col-md-4 alert alert-primary row justify-content-center" role="alert">
+  No traces to show. Search some traces.
+</div>
+
+<div *ngIf="traceGroups?.length === 0 && !error" class="offset-md-4 col-md-4 alert alert-danger row justify-content-center" role="alert">
+  No traces found.
+</div>
+
+<div class="row">
+  <div *ngIf="error"
+        class="alert alert-danger center-div"
+        role="alert"
+        [innerHTML]="error">
+  </div>
+</div>
+
+<div *ngIf="traceGroups?.length" class="row justify-content-md-center" id="tab-main">
+  <nav class="navbar navbar-light bg-white">
+    <form class="form-inline">
+      <button [ngClass]="{active: sortChosen === SortChosen.Longest}"
+              (click)="onSortChoose(SortChosen.Longest)"
+              class="btn btn-outline-primary btn-space" type="button">
+              Longest
+      </button>
+      <button [ngClass]="{active: sortChosen === SortChosen.Shortest}"
+              (click)="onSortChoose(SortChosen.Shortest)"
+              class="btn btn-outline-primary btn-space" type="button">
+              Shortest
+      </button>
+      <button [ngClass]="{active: sortChosen === SortChosen.Newest}"
+              (click)="onSortChoose(SortChosen.Newest)"
+              class="btn btn-outline-primary btn-space" type="button">
+              Newest
+      </button>
+      <button [ngClass]="{active: sortChosen === SortChosen.Oldest}"
+              (click)="onSortChoose(SortChosen.Oldest)"
+              class="btn btn-outline-primary btn-space" type="button">
+              Oldest
+      </button>
+    </form>
+  </nav>
+</div>
+<app-list *ngIf="traceGroups?.length" [tracesGroup]="getTraces()"></app-list>

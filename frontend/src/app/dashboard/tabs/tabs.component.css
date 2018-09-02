@@ -1,0 +1,9 @@
+.btn-space {
+  margin-right: 10px;
+}
+
+.center-div {
+  float: none;
+  margin: 0 auto;
+  display: inline-block; /* adjust to the text inside div */
+}

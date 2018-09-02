@@ -1,0 +1,31 @@
+<ul class="list-group">
+  <app-item *ngFor="let traceGroup of pagedItems; index as i"
+            [traceGroup]="traceGroup"
+            [last]="i + 1 === pagedItems.length"
+            [idx]="i"></app-item>
+</ul>
+
+<div class="row">
+  <div class="col-md-12">
+    <nav>
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination justify-content-center mt-5">
+        <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item mr-2">
+          <a (click)="setPage(1, tracesGroup)" class="page-link">First</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item">
+          <a (click)="setPage(pager.currentPage - 1, tracesGroup)" class="page-link">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
+            class="page-item">
+          <a (click)="setPage(page, tracesGroup)" class="page-link">{{page}}</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item">
+          <a (click)="setPage(pager.currentPage + 1, tracesGroup)" class="page-link">Next</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item ml-2">
+          <a (click)="setPage(pager.totalPages, tracesGroup)" class="page-link">Last</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
